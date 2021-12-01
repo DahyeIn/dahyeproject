@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.tiles.Informinter">
+
+<select id="listout" resultType="com.ezen.tiles.InformDTO">
+    SELECT * FROM XUSER;
+</select>
+
+<insert id="inputdata">
+    INSERT INTO XUSER VALUES (#{param1}, #{param2}, #{param3}, #{param4})
+</insert>
+
+<delete id="delete">
+    DELETE FROM XUSER WHERE EMAIL = #{param1}
+</delete>
+
+<select id="login" resultType="com.ezen.tiles.InformDTO">
+    SELECT * FROM XUSER WHERE EMAIL = #{param1} AND PASSWORD = #{param2}
+</select>
+
+</mapper>
