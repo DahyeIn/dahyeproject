@@ -51,6 +51,15 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/boardList.jsp" />
 	</definition>
-	
 
+	<definition name="detail" extends="baseLayout">
+		<put-attribute name="body"
+			value="/WEB-INF/views/detail.jsp" />
+	</definition>	
+
+	<definition name="boardModify" extends="baseLayout">
+		<put-attribute name="body"
+			value="/WEB-INF/views/boardModify.jsp" />
+	</definition>	
+	
 </tiles-definitions>

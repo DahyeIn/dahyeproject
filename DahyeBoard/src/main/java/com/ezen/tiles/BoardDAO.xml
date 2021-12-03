@@ -5,16 +5,33 @@
 
 <mapper namespace="com.ezen.tiles.BoardInter">
 
-<select id="list" resultType="com.ezen.tiles.BoardDTO">
-    SELECT * FROM XBOARD
-</select>
+	<select id="list" resultType="com.ezen.tiles.BoardDTO">
+		SELECT * FROM XBOARD ORDER BY NO ASC
+	</select>
 
-<insert id="boardinput">
-    INSERT INTO XBOARD (NO, EMAIL, TITLE, CONTENT, REG_DATE, HIT_COUNT)
-    VALUES (ID_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, SYSDATE, ID_SEQ.CURRVAL)
-</insert>
-    
-<select id="totalcount" resultType="com.ezen.tiles.BoardDTO">
-    SELECT COUNT(*) FROM XBOARD
-</select>
+	<insert id="boardinput">
+		INSERT INTO XBOARD (NO, EMAIL, TITLE, CONTENT, REG_DATE)
+		VALUES (ID_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, SYSDATE)
+	</insert>
+
+	<select id="totalcount" resultType="com.ezen.tiles.BoardDTO">
+		SELECT COUNT(*) FROM XBOARD
+	</select>
+
+	<select id="detail" resultType="com.ezen.tiles.BoardDTO">
+		SELECT * FROM XBOARD WHERE NO = #{param1}
+	</select>
+
+	<delete id="boardDelete">
+		DELETE FROM XBOARD WHERE NO = #{param1}
+	</delete>
+	
+	<update id="boardModify">
+	    UPDATE XBOARD SET EMAIL = #{param2}, TITLE = #{param3}, CONTENT = #{param4} WHERE NO = #{param1}
+	</update>
+	
+	<update id="count">
+	    UPDATE XBOARD SET HIT_COUNT = HIT_COUNT+1 WHERE NO = #{param1}
+	</update>
+
 </mapper>

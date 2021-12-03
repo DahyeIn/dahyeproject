@@ -27,7 +27,7 @@ html, body {
 	border: 0px solid #bcbcbc;
 	margin-top: 0px;
 	min-height: 100%;
-	height: 400px;
+	height: 300px;
 	top: 50%;
 	left: 50%;
 }
@@ -37,7 +37,7 @@ html, body {
 	padding: 1px;
 	border: 0px solid #bcbcbc;
 	background-color: #2196F3;
-	margin-top: 500px;
+	margin-top: 200px;
 	color: white;
 }
 </style>

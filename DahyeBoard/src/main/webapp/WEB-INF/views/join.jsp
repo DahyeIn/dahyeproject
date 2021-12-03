@@ -7,6 +7,9 @@
 <html>
 <head>
 <style>
+#minsert{
+padding-top: 70px;
+}
 #aa {
 	text-align: left;
 	color: #63696e;
@@ -35,6 +38,7 @@ function check(){
 	var vname = /^[가-힣]*$/;
 	var pw = f.password.value;
 	var pwchk = f.passwordcheck.value;
+	var lastcheck = f.lastcheck.value;
 	
 	if(email == ""){
 		alert("이메일을 입력하세요.");
@@ -71,6 +75,10 @@ function check(){
 		f.passwordcheck.select();
 		return false;
 	}		
+	
+	else if(lastcheck){
+		alert("이메일: "+email+"\n"+"이름: "+name+"\n"+"비밀번호: "+pw+"\n\n가입 하시겠습니까?");		
+	}
 	f.submit();
 }
 </script>
@@ -105,7 +113,7 @@ function check(){
 
 			</table>
 			<p>
-				<input class="button" type="button" value="가입완료" onclick="return check()">				
+				<input class="button" name="lastcheck" type="button" value="가입완료" onclick="return check()">				
 		</div>
 	</form>
 </body>

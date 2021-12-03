@@ -46,7 +46,6 @@ h3 {
 				<th>글번호</th>
 				<th>글제목</th>
 				<th>작성자</th>
-				<th>글내용</th>
 				<th>작성일자</th>
 				<th>조회수</th>
 			</tr>
@@ -54,11 +53,11 @@ h3 {
 			<c:forEach items="${boardlist }" var="b">
 				<tr>
 					<td>${b.no }</td>
-					<td><a href="detail">${b.title }</a></td>
+					<td><a href="detail?no=${b.no }">${b.title }</a></td>
 					<td>${b.email }</td>
-					<td>${b.content }</td>
 					<td>${b.reg_date }</td>
 					<td>${b.hit_count }</td>
+				</tr>
 			</c:forEach>
 		</table>
 	</div>

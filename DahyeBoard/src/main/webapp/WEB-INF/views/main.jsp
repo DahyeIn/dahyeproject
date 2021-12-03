@@ -22,22 +22,20 @@ a {
 	font-family: fantasy;
 }
 
-section{
+section {
 	padding-top: 50px;
 }
+
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<section>
-		<table width="900" align="center">
+		<table width="600" align="center">
 			<tr>
 				<td colspan="3">
-					<div id="i">★ welcome dahye's world ★</div>
-					<br>
-				<br>
-				<br>
+					<div id="i">★ welcome dahye's world ★</div> <br> <br> <br>
 				</td>
 			<tr>
 				<td width="300"><img src="resources/image/귀여워1.jpg" width="80"
@@ -46,18 +44,25 @@ section{
 				<td width="300"><img src="resources/image/귀여워2.jpg" width="80"
 					height="80"
 				></td>
-				<td width="300"><img src="resources/image/귀여워3.jpg" width="80"
+<!-- 				<td width="300"><img src="resources/image/귀여워3.jpg" width="80"
 					height="80"
-				></td>
+				></td> -->
 			</tr>
-
-
+			
 			<tr>
-				<td width="300"><a href="loginform">login</a></td>
-				<td width="300"><a href="boardList">board</a></td>
-				<td width="300"><a href="gbList">guest book</a></td>
+			<td width="300">
+				<c:choose>
+					<c:when test="${login == true && dto != null }">
+						<a href="logout">Logout</a>
+					</c:when>
+					<c:otherwise>
+						<a href="loginform">Login</a>
+					</c:otherwise>
+				</c:choose>
+				</td>
+				<td width="300"><a href="boardList">board</a></td>				
+<!-- 				<td width="300"><a href="gbList">guest book</a></td> -->
 			</tr>
-
 		</table>
 	</section>
 </body>

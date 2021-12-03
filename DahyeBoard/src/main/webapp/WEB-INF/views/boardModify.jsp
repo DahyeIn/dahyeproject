@@ -31,36 +31,37 @@ h3 {
 }
 </style>
 <script>
-	function check(){
-		
+	function check() {
+
 		var f = document.form;
 		var email = f.email.value;
 		var title = f.title.value;
 		var content = f.content.value;
 		var lastcheck = f.lastcheck.value;
-		
-		if(email == ""){
+
+		if (email == "") {
 			alert("작성자를 입력하세요.");
 			f.email.select();
 			return false;
 		}
-		
-		else if(title == ""){
+
+		else if (title == "") {
 			alert("글제목을 입력하세요.");
 			f.title.select();
 			return false;
 		}
-		
-		else if(content == ""){
+
+		else if (content == "") {
 			alert("글내용을 입력하세요.");
 			f.content.select();
 			return false;
 		}
-		
-		else if(lastcheck){
-			alert("작성자: "+email+"\n"+"글제목: "+title+"\n"+"글내용: "+content+"\n\n게시 하시겠습니까?")
+
+		else if (lastcheck) {
+			alert("작성자: " + email + "\n" + "글제목: " + title + "\n" + "글내용: "
+					+ content + "\n\n수정 하시겠습니까?")
 		}
-		f.submit();		
+		f.submit();
 	}
 </script>
 <meta charset="UTF-8">
@@ -68,13 +69,16 @@ h3 {
 </head>
 <body>
 	<div id="bb">
-		<form name="form" action="boardinputsave" method="post">
-			<h3>글쓰기</h3>
+		<form name="form" action="boardModifysave" method="post">
+		<%
+		int no = Integer.parseInt(request.getParameter("no"));
+		%>
+			<h3>글수정</h3>
 			<hr width="300">
 			<table id="aa" align="center" width="300">
 				<tr>
 					<td>글번호</td>
-					<td>자동생성</td>
+					<td>${param.no }</td>
 				</tr>
 				<tr>
 					<td>작성자</td>
@@ -90,13 +94,16 @@ h3 {
 				</tr>
 			</table>
 			<p>
-				<input class="button" name="lastcheck" type="submit" value="등록"
+				<input class="button" name="lastcheck" type="submit" value="수정"
 					onclick="return check()"
 				> <input class="button" type="reset" value="취소"
-					onclick="location.href='main'"
+					onclick="location.href='boardList'"
 				>
 		</form>
+		<%
+		HttpSession hs = request.getSession();
+		hs.setAttribute("no", no);
+		%>
 	</div>
 </body>
 </html>
-
